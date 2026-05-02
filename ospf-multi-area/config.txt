@@ -1,0 +1,80 @@
+## R1 ##
+Router>enable
+Router#configur terminal
+Router(config)#hostname R1
+R1(config)#int g0/0
+R1(config-if)#ip address
+R1(config-if)#ip address 192.168.1.1 255.255.255.252
+R1(config-if)#no shutdown
+R1(config-if)#exit
+R1(config)#router ospf 1
+R1(config-router)#network 192.168.1.0 255.255.255.252 area 0
+R1(config-router)#do copy run start
+Destination filename [startup-config]? 
+Building configuration...
+[OK]
+R1(config-router)#do wr
+
+## R2 ##
+Router>enable
+Router#configure terminal
+Router(config)#hostname R2
+R2(config)#int g0/0
+R2(config-if)#ip address
+R2(config-if)#ip address 192.168.1.2 255.255.255.252
+R2(config-if)#no shutdown
+R2(config-if)#description ##To Headquarters##
+R2(config-if)#int g0/2
+R2(config-if)#ip address
+R2(config-if)#ip address 192.168.2.1 255.255.255.0
+R2(config-if)#no shutdown
+R2(config-if)#description ##To SW1##
+R2(config-if)#exit
+R2(config)#router ospf 1
+R2(config-router)#network 192.168.1.0 255.255.255.252 area 0
+R2(config-router)#network 192.168.2.0 255.255.255.0 area 0
+R2(config-router)#network 192.168.1.4 255.255.255.252 area 0
+R2(config-router)#exit
+R2(config)#do copy run start
+R2(config)#do wr
+
+## R3 ##
+Router>enable
+Router#configure terminal
+Router(config)#hostname R2
+R2(config)#int g0/1
+R2(config-if)#ip address 192.168.1.6 255.255.255.252
+R2(config-if)#no shutdown
+R2(config-if)#description ##To Branch 1##
+R2(config-if)#int g0/0
+R2(config-if)#ip address
+R2(config-if)#ip address 192.168.3.1 255.255.255.0
+R2(config-if)#no shutdown
+R2(config-if)#description ##To SW2##
+R2(config-if)#exit
+R2(config)#router ospf 1
+R2(config-router)#network 192.168.1.4 255.255.255.252 are 0
+R2(config-router)#network 192.168.3.0 255.255.255.252 area 0
+R2(config-router)#network 192.168.3.0 255.255.255.0 area 0
+R2(config-router)#do copy run start
+R2(config-router)#do wr
+
+## PC1 ##
+IP Address: 192.168.2.2
+Subnet Mask: 255.255.255.0
+Default Gateway: 192.168.2.1
+
+## PC1 ##
+IP Address: 192.168.2.3
+Subnet Mask: 255.255.255.0
+Default Gateway: 192.168.2.1
+
+## PC3 ##
+IP Address: 192.168.3.2
+Subnet Mask: 255.255.255.0
+Default Gateway: 192.168.3.1
+
+## PC4 ##
+IP Address: 192.168.3.3
+Subnet Mask: 255.255.255.0
+Default Gateway: 192.168.3.1
