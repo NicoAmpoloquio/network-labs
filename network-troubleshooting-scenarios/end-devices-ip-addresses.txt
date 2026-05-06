@@ -1,0 +1,59 @@
+## SVR1 ##
+IPv4 Address: 192.168.20.20
+Subnet Mask: 255.255.255.0
+Default Gateway: 192.168.20.1
+
+## PC1 ##
+IPv4 Address: 192.168.10.10
+Subnet Mask: 255.255.255.0
+Default Gateway: 192.168.10.1
+
+## PC2 ##
+IPv4 Address: 192.168.10.20
+Subnet Mask: 255.255.255.0
+Default Gateway: 192.168.10.1
+
+## PC3 ##
+IPv4 Address: 192.168.11.10
+Subnet Mask: 255.255.255.0
+Default Gateway: 192.168.11.1
+
+## PC4 ##
+IPv4 Address: 192.168.11.20
+Subnet Mask: 255.255.255.0
+Default Gateway: 192.168.11.1
+
+## PC5 ##
+IPv4 Address: 192.168.20.10
+Subnet Mask: 255.255.255.0
+Default Gateway: 192.168.20.1
+
+## PC6 ##
+IPv4 Address: 192.168.21.10
+Subnet Mask: 255.255.255.0
+Default Gateway: 192.168.21.1
+
+## PC7 ##
+IPv4 Address: 192.168.21.20
+Subnet Mask: 255.255.255.0
+Default Gateway: 192.168.21.1
+
+## PC8 ##
+IPv4 Address: 192.168.22.10
+Subnet Mask: 255.255.255.0
+Default Gateway: 192.168.22.1
+
+## PC9 ##
+IPv4 Address: 192.168.22.20
+Subnet Mask: 255.255.255.0
+Default Gateway: 192.168.22.1
+
+## PC10 ##
+IPv4 Address: 192.168.32.10
+Subnet Mask: 255.255.255.0
+Default Gateway: 192.168.32.1
+
+## PC11 ##
+IPv4 Address: 192.168.32.20
+Subnet Mask: 255.255.255.0
+Default Gateway: 192.168.32.1

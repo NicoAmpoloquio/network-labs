@@ -1,0 +1,119 @@
+## SW1 ##
+Switch>enable
+Switch#configure terminal
+Switch(config)#hostname SW1
+SW1(config)#vlan 10
+SW1(config-vlan)#name IT
+SW1(config-vlan)#vlan 20
+SW1(config-vlan)#name HR
+SW1(config-vlan)#vlan 30
+SW1(config-vlan)#name ENGINEERING
+SW1(config-vlan)#vlan 99
+SW1(config-vlan)#name UNUSED
+SW1(config-vlan)#exit
+SW1(config)#
+
+SW1(config)#int g0/1
+SW1(config-if)#switchport mode trunk
+SW1(config-if)#switchport trunk native vlan 1000
+SW1(config-if)#switchport trunk allowed vlan 10,20,30
+SW1(config-if)#exit
+SW1(config)#
+
+SW1(config)#int range f0/1,f0/3
+SW1(config-if-range)#no shut
+SW1(config-if-range)#switchport mode access
+SW1(config-if-range)#switchport access vlan 10
+SW1(config-if-range)#int range f0/2,f0/4
+SW1(config-if-range)#no shut
+SW1(config-if-range)#switchport mode access
+SW1(config-if-range)#switchport access vlan 20
+SW1(config-if-range)#int range f0/5-24,g0/2
+SW1(config-if-range)#shut
+SW1(config-if-range)#switchport mode access
+SW1(config-if-range)#switchport access vlan 99
+SW1(config-if-range)#exit
+SW1(config)#
+
+SW1(config)#do copy run start
+SW1(config)#do wr
+
+## SW2 ##
+Switch>enable
+Switch#configure terminal
+Switch(config)#hostname SW2
+SW2(config)#vlan 10
+SW2(config-vlan)#name IT
+SW2(config-vlan)#vlan 20
+SW2(config-vlan)#name HR
+SW2(config-vlan)#vlan 30
+SW2(config-vlan)#name ENGINEERING
+SW2(config-vlan)#vlan 99
+SW2(config-vlan)#name UNUSED
+SW2(config-vlan)#exit
+SW2(config)#
+
+SW2(config)#int g0/2
+SW2(config-if)#switchport mode trunk
+SW2(config-if)#switchport trunk native vlan 1000
+SW2(config-if)#switchport trunk allowed vlan 10,20,30
+SW2(config-if)#exit
+SW2(config)#
+
+SW2(config)#int range f0/1-2
+SW2(config-if-range)#no shut
+SW2(config-if-range)#switchport mode access
+SW2(config-if-range)#switchport access vlan 10
+SW2(config-if-range)#int range f0/3,4
+SW2(config-if-range)#no shut
+SW2(config-if-range)#switchport mode access
+SW2(config-if-range)#switchport access vlan 20
+SW2(config-if-range)#int range f0/5-24,g0/1
+SW2(config-if-range)#shut
+SW2(config-if-range)#switchport mode access
+SW2(config-if-range)#switchport access vlan 99
+SW2(config-if-range)#exit
+SW2(config)#
+
+SW2(config)#do copy run start
+SW2(config)#do wr
+
+## SW3 ##
+Switch>enable
+Switch#configure terminal
+Switch(config)#hostname SW3
+SW3(config)#vlan 10
+SW3(config-vlan)#name IT
+SW3(config-vlan)#vlan 20
+SW3(config-vlan)#name HR
+SW3(config-vlan)#vlan 30
+SW3(config-vlan)#name ENGINEERING
+SW3(config-vlan)#vlan 99
+SW3(config-vlan)#name UNUSED
+SW3(config-vlan)#exit
+SW3(config)#
+
+SW3(config)#int g0/2
+SW3(config-if)#switchport mode trunk
+SW3(config-if)#switchport trunk native vlan 1000
+SW3(config-if)#switchport trunk allowed vlan 10,20,30
+SW3(config-if)#exit
+SW3(config)#
+
+SW3(config)#int range f0/3-4
+SW3(config-if-range)#no shut
+SW3(config-if-range)#switchport mode access
+SW3(config-if-range)#switchport access vlan 20
+SW3(config-if-range)#int range f0/1-2
+SW3(config-if-range)#no shut
+SW3(config-if-range)#switchport mode access
+SW3(config-if-range)#switchport access vlan 30
+SW3(config-if-range)#int range f0/5-24,g0/1
+SW3(config-if-range)#shut
+SW3(config-if-range)#switchport mode access
+SW3(config-if-range)#switchport access vlan 99
+SW3(config-if-range)#exit
+SW3(config)#
+
+SW3(config)#do copy run start
+SW3(config)#do wr
